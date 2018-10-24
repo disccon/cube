@@ -5,6 +5,7 @@ body{
   font-style: normal;
 }
 .container{
+  width: 100%;
   padding-top: 50px;
   padding-left: 50px;
   .block-table{
@@ -16,20 +17,31 @@ body{
       .button-plus{
         position: absolute;
         z-index: 2;
-        width: 50px;
-        height: 50px;
-        padding: 0px;
         background: rgba(243, 165, 0, 1);
         font-family: 'Open Sans', sans-serif;
         font-weight: 600;
-        font-style: normal;
         font-size: 28px;
         line-height: 40px;
+      }
+      .button-minus:hover{
+        background:rgba(178, 0, 0,0.7);
+        @include transition( background ease 0.3s);
+      }
+      .button-minus:active{
+        @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
+      }
+      .button-plus,.button-minus{
+        width: 50px;
+        height: 50px;
+        padding: 0px;
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
         color: #fff;
+        @include transition( all ease 3.3s);
       }
       .button-plus:hover{
         background: rgba(243, 165, 0, 0.65);
-        @include transition(background ease 0.3s);
+        @include transition( all ease 3.3s);
       }
       .button-plus:focus{
         @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
@@ -42,21 +54,19 @@ body{
         bottom: -50px;
         left: 5px;
       }
+
       .button-minus{
         display: none;
         @include justify-content(center);
         position: absolute;
         z-index: 2;
-        width: 50px;
-        height: 50px;
-        padding: 0px;
         background: rgba(178, 0, 0, 1);
-        font-family: 'Open Sans', sans-serif;
         font-weight: 400;
-        font-style: normal;
         font-size: 37px;
-        line-height: 41px;
-        color: #fff;
+        @include opacity(0);
+        span{
+          height: 50px;
+        }
       }
       .button-minus_top{
         top: -50px;
@@ -66,21 +76,22 @@ body{
         top: 5px;
         left: -50px;
       }
-      .button-minus_animation-display{
-        @include flexbox;
-        @include opacity(0);
-      }
-      .button-minus_animation-opacity{
-        @include opacity(1);
-        @include transition(all ease 0.2s);
-      }
       .button-minus:hover{
-        background:rgba(178, 0, 0,0.7);
-        @include transition(background ease 0.3s);
+        background:rgba( 178, 0, 0,0.7);
+        @include transition( all ease 3.3s);
       }
       .button-minus:active{
         @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
       }
+
+      .button-minus_animation-display{
+        @include flexbox;
+      }
+      .button-minus_animation-opacity{
+        @include opacity(1);
+        @include transition( all ease 3.3s);
+      }
+
       .table {
         border: 1px solid #48aae6;
         border-spacing: 2px;
@@ -90,6 +101,7 @@ body{
         tbody {
           tr {
             td {
+              min-width: 50px;
               width: 50px;
               height: 50px;
               background: #48aae6;
