@@ -25,7 +25,7 @@ body{
       }
       .button-minus:hover{
         background:rgba(178, 0, 0,0.7);
-        @include transition( background ease 0.3s);
+        @include transition( background ease .3s);
       }
       .button-minus:active{
         @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
@@ -41,7 +41,7 @@ body{
       }
       .button-plus:hover{
         background: rgba(243, 165, 0, 0.65);
-        @include transition( all ease 3.3s);
+        @include transition( all ease .3s);
       }
       .button-plus:focus{
         @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
@@ -54,7 +54,6 @@ body{
         bottom: -50px;
         left: 5px;
       }
-
       .button-minus{
         display: none;
         @include justify-content(center);
@@ -78,7 +77,7 @@ body{
       }
       .button-minus:hover{
         background:rgba( 178, 0, 0,0.7);
-        @include transition( all ease 3.3s);
+        @include transition( all ease .3s);
       }
       .button-minus:active{
         @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
@@ -89,7 +88,7 @@ body{
       }
       .button-minus_animation-opacity{
         @include opacity(1);
-        @include transition( all ease 3.3s);
+        @include transition( all ease .3s);
       }
 
       .table {
