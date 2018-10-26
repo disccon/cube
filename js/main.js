@@ -73,10 +73,12 @@ window.onload = function () {
             let target = event.target;
             clearTimeout(TableMouseleave)
             if (target.tagName === "TD" || target.tagName === "BUTTON") {
-                targetIndexRow = target.parentElement.rowIndex;
-                targetIndexCell = target.cellIndex;
-                minusLeft.style.top = (target.parentNode.rowIndex * heightCell) + 5 + "px";
-                minusTop.style.left = (target.cellIndex * widthCell) + 5 + "px";
+                if( target.tagName === "TD"){
+                    targetIndexRow = target.parentElement.rowIndex;
+                    targetIndexCell = target.cellIndex;
+                    minusLeft.style.top = (target.parentNode.rowIndex * heightCell) + 5 + "px";
+                    minusTop.style.left = (target.cellIndex * widthCell) + 5 + "px";
+                }
                 if (tableRefRows[0].cells.length > 1) {
                     minusTop.classList.add('button-minus_animation-display');
                     setTimeout(() => {
