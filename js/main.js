@@ -11,27 +11,33 @@ window.onload = function () {
     let targetIndexRow = null;
     let targetIndexCell = null;
 
+    let colCount = 4
+    for (let i = 0; i < colCount; i++) {
+        tableRef.insertRow(i)
+        for (let i2 = 0; i2 < colCount; i2++) {
+            tableRef.rows[i].insertCell(i2).innerHTML = i + ''+ i2;
+        }
+    }
+
     let heightCell = tableRefRows[0].cells[0].getBoundingClientRect().height + 2;
     let widthCell = tableRefRows[0].cells[0].getBoundingClientRect().width + 2;
-
 
     class Table {
         addRow() {
             let row = tableRef.insertRow(-1);
             for (let value of tableRefRows[0].cells) {
                 row.insertCell();
-            }
+            };
         };
         addCell() {
-            for (let index of tableRefRows) {
-                index.insertCell();
+            for (let indexCell of tableRefRows) {
+                indexCell.insertCell();
             }
         };
         deleteRow() {
             let minusLeftPositionTop = parseInt(minusLeft.style.top, 10);
             if ((minusLeftPositionTop + heightCell) > tableRef.getBoundingClientRect().height && tableRefRows.length > 2) {
                 minusLeft.style.top = minusLeftPositionTop - heightCell + 'px';
-
             }
             if (tableRefRows.length > 1) {
                 tableRef.deleteRow(targetIndexRow >= tableRefRows.length ? targetIndexRow = targetIndexRow - 1 : targetIndexRow)
@@ -42,8 +48,7 @@ window.onload = function () {
                     minusLeft.classList.remove('button-minus_animation-display');
                 }, 300);
             }
-        }
-
+        };
         deleteCells() {
             let minusTopPositionLeft = parseInt(minusTop.style.left, 10);
             if ((minusTopPositionLeft + widthCell) > tableRef.getBoundingClientRect().width && tableRefRows[0].cells.length > 2) {
@@ -55,8 +60,7 @@ window.onload = function () {
                 }
                 for (let index of tableRefRows) {
                     index.deleteCell(targetIndexCell)
-                }
-                ;
+                };
             }
             if (tableRefRows[0].cells.length === 1) {
                 minusTop.classList.remove('button-minus_animation-opacity');
@@ -64,41 +68,40 @@ window.onload = function () {
                     minusTop.classList.remove('button-minus_animation-display');
                 }, 300);
             }
-        }
-
+        };
         mouseoverTable(event) {
             let target = event.target;
             clearTimeout(TableMouseleave)
-            if (tableRefRows[0].cells.length > 1) {
-                minusTop.classList.add('button-minus_animation-display');
-                setTimeout(() => {
-                    minusTop.classList.add('button-minus_animation-opacity');
-                }, 10);
-            }
-            if (target.tagName === "TD") {
+            if (target.tagName === "TD" || target.tagName === "BUTTON") {
                 targetIndexRow = target.parentElement.rowIndex;
                 targetIndexCell = target.cellIndex;
                 minusLeft.style.top = (target.parentNode.rowIndex * heightCell) + 5 + "px";
                 minusTop.style.left = (target.cellIndex * widthCell) + 5 + "px";
-            }
-            if (tableRefRows.length > 1) {
-                minusLeft.classList.add('button-minus_animation-display');
-                setTimeout(() => {
-                    minusLeft.classList.add('button-minus_animation-opacity');
-                }, 10);
-            }
-        }
+                if (tableRefRows[0].cells.length > 1) {
+                    minusTop.classList.add('button-minus_animation-display');
+                    setTimeout(() => {
+                        minusTop.classList.add('button-minus_animation-opacity');
+                    }, 20);
+                }
+                if (tableRefRows.length > 1) {
+                    minusLeft.classList.add('button-minus_animation-display');
+                    setTimeout(() => {
+                        minusLeft.classList.add('button-minus_animation-opacity');
+                    },20);
+                }
 
+            }
+        };
         mouseleaveTable() {
             TableMouseleave = setTimeout(() => {
                 minusLeft.classList.remove('button-minus_animation-opacity');
                 minusTop.classList.remove('button-minus_animation-opacity');
-                setTimeout(() => {
+                TableMouseleave = setTimeout(() => {
                     minusLeft.classList.remove('button-minus_animation-display');
                     minusTop.classList.remove('button-minus_animation-display');
                 }, 3300);
             }, 3000);
-        }
+        };
     }
 
     let tableClass = new Table();

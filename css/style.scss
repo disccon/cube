@@ -37,11 +37,10 @@ body{
         font-family: 'Open Sans', sans-serif;
         font-style: normal;
         color: #fff;
-        @include transition( all ease 3.3s);
       }
       .button-plus:hover{
         background: rgba(243, 165, 0, 0.65);
-        @include transition( all ease .3s);
+        @include transition( all ease 3.3s);
       }
       .button-plus:focus{
         @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
@@ -62,7 +61,7 @@ body{
         background: rgba(178, 0, 0, 1);
         font-weight: 400;
         font-size: 37px;
-        @include opacity(0);
+        @include transition( opacity ease .3s);
         span{
           height: 50px;
         }
@@ -85,6 +84,9 @@ body{
 
       .button-minus_animation-display{
         @include flexbox;
+        @include opacity(0);
+        @include transition( opacity ease .3s);
+
       }
       .button-minus_animation-opacity{
         @include opacity(1);
