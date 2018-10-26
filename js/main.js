@@ -81,7 +81,7 @@ window.onload = function () {
                     minusTop.classList.add('button-minus_animation-display');
                     setTimeout(() => {
                         minusTop.classList.add('button-minus_animation-opacity');
-                    }, 20);
+                    },20);
                 }
                 if (tableRefRows.length > 1) {
                     minusLeft.classList.add('button-minus_animation-display');
@@ -89,7 +89,6 @@ window.onload = function () {
                         minusLeft.classList.add('button-minus_animation-opacity');
                     },20);
                 }
-
             }
         };
         mouseleaveTable() {
