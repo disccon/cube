@@ -5,6 +5,9 @@ body{
   font-style: normal;
   overflow: visible;
 }
+
+
+
 .container{
   width: 100%;
   padding-top: 50px;
@@ -24,13 +27,6 @@ body{
         font-size: 28px;
         line-height: 40px;
       }
-      .button-minus:hover{
-        background:rgba(178, 0, 0,0.7);
-        @include transition( background ease .3s);
-      }
-      .button-minus:active{
-        @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
-      }
       .button-plus,.button-minus{
         width: 50px;
         height: 50px;
@@ -41,7 +37,7 @@ body{
       }
       .button-plus:hover{
         background: rgba(243, 165, 0, 0.65);
-        @include transition( all ease 3.3s);
+       // @include transition( all ease 3.3s);
       }
       .button-plus:focus{
         @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
@@ -54,6 +50,19 @@ body{
         bottom: -50px;
         left: 5px;
       }
+      .button-minus:hover{
+         background:rgba( 178, 0, 0,0.7);
+          @include transition( all ease .3s);
+      //  display: block;
+      //  -webkit-animation: fadeInFromNone 0.5s ease-out;
+      //  -moz-animation: fadeInFromNone 0.5s ease-out;
+      //  -o-animation: fadeInFromNone 0.5s ease-out;
+      //  animation: fadeInFromNone 0.5s ease-out;
+      //  //@include transition( all ease .3s);
+      }
+      .button-minus:active{
+        @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
+      }
       .button-minus{
         display: none;
         @include justify-content(center);
@@ -62,7 +71,8 @@ body{
         background: rgba(178, 0, 0, 1);
         font-weight: 400;
         font-size: 37px;
-        @include transition( opacity ease .3s);
+        //@include opacity(0);
+        // @include transition( opacity ease .3s);
         span{
           height: 50px;
         }
@@ -75,25 +85,46 @@ body{
         top: 5px;
         left: -50px;
       }
-      .button-minus:hover{
-        background:rgba( 178, 0, 0,0.7);
-        @include transition( all ease .3s);
-      }
-      .button-minus:active{
-        @include box-shadow( 0 0 2px 3px rgba(72,170,230,0.72));
-      }
+      //.button-minus_animation-display{
+      //  @include flexbox;
+      //  opacity: 0;
+      //}
 
-      .button-minus_animation-display{
-        @include flexbox;
-        @include opacity(0);
-        @include transition( opacity ease .3s);
-
-      }
       .button-minus_animation-opacity{
-        @include opacity(1);
-        @include transition( all ease .3s);
+        //-webkit-animation: fadeInFromNone 0.5s ease-out;
+        //-moz-animation: fadeInFromNone 0.5s ease-out;
+        //-o-animation: fadeInFromNone 0.5s ease-out;
+        //animation: fadeInFromNone 0.5s ease-out;
+        @include flexbox;
+        @include animation( fadeInFromNone 2.5s ease-out);
+        //-o-animation-fill-mode: both;
+        //-webkit-animation-fill-mode: both;
+        //-moz-animation-fill-mode: both;
+        //animation-fill-mode: both;
+        //transition: left ease 1s;
+        //transition: all ease 0.3s;
+        //animation: show 5s ease-out 1;
+        //@include opacity(0);
+        //@include transition( opacity ease .3s);
       }
-
+      .button-minus_animation-opacity2{
+        @include animation( fadeInFromNone2 2.5s ease-out);
+        opacity: 0;
+        //@include animation( fadeInFromNone2 5.5s ease-out reverse);
+        //-o-animation-fill-mode: both;
+        //-webkit-animation-fill-mode: both;
+        //-moz-animation-fill-mode: both;
+        //animation-fill-mode: both;
+        //@include opacity(1);
+      }
+      //.button-minus_animation-opacity{
+      //    display: block;
+      //
+      //        -webkit-animation: fadeInFromNone 0.5s ease-out;
+      //        -moz-animation: fadeInFromNone 0.5s ease-out;
+      //        -o-animation: fadeInFromNone 0.5s ease-out;
+      //        animation: fadeInFromNone 0.5s ease-out;
+      //}
       .table {
         border: 1px solid #48aae6;
         border-spacing: 2px;
@@ -113,7 +144,127 @@ body{
       }
     }
   }
-
 }
 
+@-ms-keyframes fadeInFromNone2 {
+  0% {
+    //@include flexbox;
+    opacity: 1;
+  }
+
+  99% {
+    //@include flexbox;
+    opacity: 0;
+  }
+  //100%{
+  //  display: none;
+  //}
+}
+
+@-webkit-keyframes fadeInFromNone2 {
+  0% {
+   // @include flexbox;
+    opacity: 1;
+  }
+  100% {
+   // @include flexbox;
+    opacity: 0;
+  }
+  //100%{
+  //  display: none;
+  //  opacity: 0;
+  //}
+}
+
+@-moz-keyframes fadeInFromNone2 {
+  0% {
+    //@include flexbox;
+    opacity: 1;
+  }
+  100% {
+    //@include flexbox;
+    opacity: 0;
+  }
+  //100%{
+  //  display: none;
+  //  opacity: 0;
+  //}
+}
+
+@-o-keyframes fadeInFromNone2 {
+  0% {
+    //@include flexbox;
+    opacity: 1;
+  }
+  100%  {
+   // @include flexbox;
+    opacity: 0;
+  }
+  //100%{
+  //  display: none;
+  //  opacity: 0;
+  //}
+}
+
+@keyframes fadeInFromNone2 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+  //100%{
+  //  display: none;
+  //  opacity: 0;
+  //}
+}
+
+
+
+
+
+@-ms-keyframes fadeInFromNone {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInFromNone {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeInFromNone {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeInFromNone {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 

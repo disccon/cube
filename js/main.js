@@ -30,6 +30,8 @@ window.onload = function () {
             };
         };
         addCell() {
+
+
             for (let indexCell of tableRefRows) {
                 indexCell.insertCell();
             }
@@ -80,27 +82,19 @@ window.onload = function () {
                     minusTop.style.left = (target.cellIndex * widthCell) + 5 + "px";
                 }
                 if (tableRefRows[0].cells.length > 1) {
-                    minusTop.classList.add('button-minus_animation-display');
-                    setTimeout(() => {
-                        minusTop.classList.add('button-minus_animation-opacity');
-                    },20);
+                    minusTop.classList.add('button-minus_animation-opacity');
                 }
                 if (tableRefRows.length > 1) {
-                    minusLeft.classList.add('button-minus_animation-display');
-                    setTimeout(() => {
-                        minusLeft.classList.add('button-minus_animation-opacity');
-                    },20);
+                    minusLeft.classList.add('button-minus_animation-opacity');
                 }
             }
         };
         mouseleaveTable() {
             TableMouseleave = setTimeout(() => {
-                minusLeft.classList.remove('button-minus_animation-opacity');
-                minusTop.classList.remove('button-minus_animation-opacity');
-                TableMouseleave = setTimeout(() => {
-                    minusLeft.classList.remove('button-minus_animation-display');
-                    minusTop.classList.remove('button-minus_animation-display');
-                }, 3300);
+                // minusLeft.classList.remove('button-minus_animation-opacity');
+                // minusTop.classList.remove('button-minus_animation-opacity');
+                // minusLeft.classList.add('button-minus_animation-opacity2');
+                // minusTop.classList.add('button-minus_animation-opacity2');
             }, 3000);
         };
     }

@@ -18,13 +18,21 @@
   }
 }
 
-@mixin animation($name, $duration, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
-  -webkit-animation: $name $duration $iterations $timing-function $delay;
-  -moz-animation: $name $duration $iterations $timing-function $delay;
-  -ms-animation: $name $duration $iterations $timing-function $delay;
-  -o-animation: $name $duration $iterations $timing-function $delay;
-  animation: $name $duration $iterations $timing-function $delay;
+//@mixin animation($name, $duration, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
+//  -webkit-animation: $name $duration $iterations $timing-function $delay;
+//  -moz-animation: $name $duration $iterations $timing-function $delay;
+//  -ms-animation: $name $duration $iterations $timing-function $delay;
+//  -o-animation: $name $duration $iterations $timing-function $delay;
+//  animation: $name $duration $iterations $timing-function $delay;
+//}
+@mixin animation($value...){
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  -ms-animation: $value;
+  -o-animation: $value;
+  animation: $value;
 }
+
 @mixin push--auto {
   margin: {
     left: auto;
