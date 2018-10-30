@@ -30,8 +30,6 @@ window.onload = function () {
             };
         };
         addCell() {
-
-
             for (let indexCell of tableRefRows) {
                 indexCell.insertCell();
             }
@@ -45,10 +43,7 @@ window.onload = function () {
                 tableRef.deleteRow(targetIndexRow >= tableRefRows.length ? targetIndexRow = targetIndexRow - 1 : targetIndexRow)
             }
             if (tableRefRows.length === 1) {
-                minusLeft.classList.remove('button-minus_animation-opacity');
-                setTimeout(() => {
-                    minusLeft.classList.remove('button-minus_animation-display');
-                }, 300);
+                minusLeft.classList.remove('button-minus_animation-display');
             }
         };
         deleteCells() {
@@ -65,10 +60,7 @@ window.onload = function () {
                 };
             }
             if (tableRefRows[0].cells.length === 1) {
-                minusTop.classList.remove('button-minus_animation-opacity');
-                setTimeout(() => {
-                    minusTop.classList.remove('button-minus_animation-display');
-                }, 300);
+                minusTop.classList.remove('button-minus_animation-display');
             }
         };
         mouseoverTable(event) {
@@ -82,19 +74,17 @@ window.onload = function () {
                     minusTop.style.left = (target.cellIndex * widthCell) + 5 + "px";
                 }
                 if (tableRefRows[0].cells.length > 1) {
-                    minusTop.classList.add('button-minus_animation-opacity');
+                    minusTop.classList.add('button-minus_animation-display');
                 }
                 if (tableRefRows.length > 1) {
-                    minusLeft.classList.add('button-minus_animation-opacity');
+                    minusLeft.classList.add('button-minus_animation-display');
                 }
             }
         };
         mouseleaveTable() {
             TableMouseleave = setTimeout(() => {
-                // minusLeft.classList.remove('button-minus_animation-opacity');
-                // minusTop.classList.remove('button-minus_animation-opacity');
-                // minusLeft.classList.add('button-minus_animation-opacity2');
-                // minusTop.classList.add('button-minus_animation-opacity2');
+                minusLeft.classList.remove('button-minus_animation-display');
+                minusTop.classList.remove('button-minus_animation-display');
             }, 3000);
         };
     }
